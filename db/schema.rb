@@ -10,18 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_05_30_043309) do
+ActiveRecord::Schema[8.1].define(version: 2026_05_30_141337) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
   create_table "products", force: :cascade do |t|
-    t.boolean "active"
-    t.string "category"
+    t.boolean "active", default: true, null: false
+    t.string "category", null: false
     t.datetime "created_at", null: false
     t.text "description"
-    t.string "name"
-    t.decimal "price"
-    t.integer "stock"
+    t.string "name", null: false
+    t.decimal "price", null: false
+    t.integer "stock", default: 0, null: false
     t.datetime "updated_at", null: false
+    t.check_constraint "char_length(TRIM(BOTH FROM category)) > 0", name: "products_category_not_blank"
+    t.check_constraint "char_length(TRIM(BOTH FROM name)) >= 3", name: "products_name_min_length"
+    t.check_constraint "price > 0::numeric", name: "products_price_positive"
+    t.check_constraint "stock >= 0", name: "products_stock_non_negative"
   end
 end
