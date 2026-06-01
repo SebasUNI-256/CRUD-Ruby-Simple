@@ -11,4 +11,15 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  
+  # sintaxis de una ruta
+  # metodo_http "url", to: "controlador#accion"
+  
+  #CRUD
+   get "/products", to: "products#index"
+   post "/products", to: "products#create"
+   delete "/products/:id", to: "products#destroy"
+   get "/products/new", to: "products#new"
+   patch "/products/:id", to: "products#update"
+   get "/products/:id", to: "products#show"
 end

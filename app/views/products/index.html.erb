@@ -1,0 +1,25 @@
+<h1>Productos</h1>
+
+<a href="/products/new">Nuevo Producto</a>
+
+<ul>
+  <% @products.each do |product| %>
+    <li>
+      <strong><%= product.name %></strong>
+      - Precio: <%= product.price %>
+      - Stock: <%= product.stock %>
+
+      <a href="/products/<%= product.id %>">Ver</a>
+      <a href="/products/<%= product.id %>/edit">Editar</a>
+
+      <%= button_to "Eliminar",
+          "/products/#{product.id}",
+          method: :delete,
+          data: { turbo_confirm: "¿Seguro que quieres eliminar este producto?" } %>
+    </li>
+  <% end %>
+</ul>
+
+<!-- Depende del controlador index -->
+
+<!--Depende del controlador index-->

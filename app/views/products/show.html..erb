@@ -1,0 +1,27 @@
+<h1><%= @product.name %></h1>
+
+<p>
+    <strong>Descripcion:</strong>
+    <%= @product.description%>
+</p>
+<p>
+    <strong>Preciu:</strong>
+    <%= @product.price%>
+</p>
+<p>
+    <strong>stock:</strong>
+    <%= @product.stock%>
+</p>
+<p>
+    <strong>Categoria:</strong>
+    <%= @product.category%>
+</p>
+<p>
+    <strong>Activo:</strong>
+    <%= @product.active%>
+</p>
+
+<a href="/products">Volver</a>
+<a href="/products/<%@product.id%>/edit">Editar</a>
+
+<!--Esto depende del controlador de show-->
