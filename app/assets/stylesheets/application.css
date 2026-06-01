@@ -1,18 +1,151 @@
-/* app/assets/stylesheets/application.css */
-
 body {
-  font-family: Arial, sans-serif;
-  margin: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6f8;
+  color: #222;
+  margin: 0;
+  padding: 40px;
 }
 
 h1 {
+  color: #1f2937;
   margin-bottom: 20px;
 }
 
 a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background: #1d4ed8;
+  text-decoration: none;
+}
+
+.btn-danger {
+  background: #dc2626;
+}
+
+.btn-danger:hover {
+  background: #b91c1c;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.product-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-card-stacked {
+  display: block;
+}
+
+.product-info strong {
+  display: block;
+  font-size: 18px;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.product-info p {
+  margin: 0 0 12px;
+  color: #374151;
+}
+
+.product-info span {
+  color: #6b7280;
   margin-right: 10px;
 }
 
+.product-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
 form div {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #374151;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+input[type="submit"],
+button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+input[type="submit"]:hover,
+button:hover {
+  background: #1d4ed8;
+}
+
+.error-box {
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+  color: #991b1b;
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }

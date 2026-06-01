@@ -1,6 +1,10 @@
-<h1>Editar Producto</h1>
-<% remder "form", product: @product%>
-<a href="/products">Volver</a>
+<div class="container">
+  <h1>Editar Producto</h1>
+
+  <%= render "form", product: @product %>
+
+  <a class="btn" href="/products">Volver</a>
+</div>
 
 <!--new y edit usan el mismo
  fomulario por que ambos trabajan con un producto: uno

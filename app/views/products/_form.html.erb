@@ -1,9 +1,9 @@
 <%= form_with model: product do |form|%>
 <% if product.errors.any?%>
-<div>
+<div class="error-box">
     <h2>Errores:</h2>
     <ul>
-        <%product.errors.full_message.each do |message|%>
+        <% product.errors.full_messages.each do |message| %>
         <li><%= message%></li>
         <%end%>
     </ul>
@@ -41,7 +41,7 @@
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Actualizar Producto" %>
   </div>
 <% end %>
 

@@ -15,11 +15,14 @@ Rails.application.routes.draw do
   # sintaxis de una ruta
   # metodo_http "url", to: "controlador#accion"
   
+    resources :products
+    
   #CRUD
-   get "/products", to: "products#index"
-   post "/products", to: "products#create"
-   delete "/products/:id", to: "products#destroy"
-   get "/products/new", to: "products#new"
-   patch "/products/:id", to: "products#update"
-   get "/products/:id", to: "products#show"
+  # get "/products", to: "products#index"
+  # post "/products", to: "products#create"
+  # delete "/products/:id", to: "products#destroy"
+  # get "/products/new", to: "products#new"
+  # patch "/products/:id", to: "products#update"
+  # get "/products/:id", to: "products#show"
+  # get "/products/:id/edit", to: "products#edit" 
 end

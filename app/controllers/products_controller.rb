@@ -33,8 +33,8 @@ class ProductsController < ApplicationController
 
   #Actualiza un producto existente
   def update
-    product = Product.find(params[:id])
-    if product.update(product_params)
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
       
     redirect_to "/products"
     else
@@ -57,4 +57,3 @@ private
 def product_params
   params.require(:product).permit(:name, :description,:price,:stock,:category, :active)
 end
-

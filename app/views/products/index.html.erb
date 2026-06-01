@@ -1,25 +1,30 @@
-<h1>Productos</h1>
+<div class="container">
+  <h1>Productos</h1>
 
-<a href="/products/new">Nuevo Producto</a>
+  <a class="btn" href="/products/new">Nuevo Producto</a>
 
-<ul>
-  <% @products.each do |product| %>
-    <li>
-      <strong><%= product.name %></strong>
-      - Precio: <%= product.price %>
-      - Stock: <%= product.stock %>
+  <ul class="product-list">
+    <% @products.each do |product| %>
+      <li class="product-card">
+        <div class="product-info">
+          <strong><%= product.name %></strong>
 
-      <a href="/products/<%= product.id %>">Ver</a>
-      <a href="/products/<%= product.id %>/edit">Editar</a>
+          <span>Precio: <%= product.price %></span>
+          <span>Stock: <%= product.stock %></span>
+        </div>
 
-      <%= button_to "Eliminar",
-          "/products/#{product.id}",
-          method: :delete,
-          data: { turbo_confirm: "¿Seguro que quieres eliminar este producto?" } %>
-    </li>
-  <% end %>
-</ul>
+        <div class="product-actions">
+          <a href="/products/<%= product.id %>">Ver</a>
+          <a href="/products/<%= product.id %>/edit">Editar</a>
 
-<!-- Depende del controlador index -->
-
+          <%= button_to "Eliminar",
+              "/products/#{product.id}",
+              method: :delete,
+              class: "btn btn-danger",
+              data: { turbo_confirm: "¿Seguro que quieres eliminar este producto?" } %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
 <!--Depende del controlador index-->
