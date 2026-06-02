@@ -2,6 +2,14 @@
   <h1>Productos</h1>
 
   <a class="btn" href="/products/new">Nuevo Producto</a>
+  <%= form_with url: products_path, method: :get, local: true do %>
+  <%= text_field_tag :name, params[:name], placeholder: "Buscar por nombre" %>
+
+  <%= select_tag :active,
+      options_for_select([["Todos", ""], ["Sí", true], ["No", false]], params[:active]) %>
+
+  <%= submit_tag "Buscar" %>
+<% end %>
 
   <ul class="product-list">
     <% @products.each do |product| %>

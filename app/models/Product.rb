@@ -12,6 +12,20 @@ class Product < ApplicationRecord
               numericality:{only_integer: true, greater_than_or_equals_to: 0}
               
     validates :category, presence:true
+
+
+    def self.filter_by(params)
+            products = all
+            
+            if params[:name].present?
+                            products = products.where("name LIKE ?","%#{params[:name]}%")  
+            end
+
+            if params[:active].present?
+                            products = products.where(active: params[:active])  
+            end
+        products
+    end
 end
 
 #Presenece true quiere decir que no puede queda vacio
