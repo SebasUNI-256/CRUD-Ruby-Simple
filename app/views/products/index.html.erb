@@ -6,7 +6,7 @@
   <%= text_field_tag :name, params[:name], placeholder: "Buscar por nombre" %>
 
   <%= select_tag :active,
-      options_for_select([["Todos", ""], ["Sí", true], ["No", false]], params[:active]) %>
+      options_for_select([["Todos", ""], ["Activos", true], ["Inactivos", false]], params[:active]) %>
 
   <%= submit_tag "Buscar" %>
 <% end %>

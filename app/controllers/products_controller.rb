@@ -1,9 +1,9 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  #Prepara Todo para no repetir codigo (ej: @product = Product.find(params[:id]) )
+    #Prepara Todo para no repetir codigo (ej: @product = Product.find(params[:id]) )
     
-  #/products/5/edit
-     #       ↓
+    #/products/5/edit
+    #        ↓
     #params[:id] = 5
     #        ↓
     #before_action ejecuta set_product

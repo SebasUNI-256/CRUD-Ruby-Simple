@@ -22,7 +22,11 @@ class Product < ApplicationRecord
             end
 
             if params[:active].present?
-                            products = products.where(active: params[:active])  
+                              # Convierte el texto del formulario:
+                              # "true"  -> true
+                              # "false" -> false
+                            active_value = ActiveModel::Type::Boolean.new.cast(params[:active]) 
+                            products = products.where(active: active_value)  
             end
         products
     end
