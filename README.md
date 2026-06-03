@@ -135,7 +135,32 @@ http://localhost:3000
 
 El proyecto esta configurado para usar PostgreSQL en desarrollo, pruebas y produccion.
 
-Recuerda ajustar tus credenciales en `config/database.yml` segun tu entorno local.
+Las credenciales de la base de datos se leen desde variables de entorno para no exponer datos sensibles en el repositorio.
+
+Variables usadas:
+
+- `DB_USERNAME`
+- `DB_PASSWORD`
+
+Ejemplo en PowerShell para la sesion actual:
+
+```powershell
+$env:DB_USERNAME="postgres"
+$env:DB_PASSWORD="tu_password"
+```
+
+Despues de definirlas, puedes iniciar la aplicacion normalmente:
+
+```bash
+bin/rails server
+```
+
+Si quieres dejarlas guardadas de forma persistente en Windows:
+
+```powershell
+[System.Environment]::SetEnvironmentVariable("DB_USERNAME", "postgres", "User")
+[System.Environment]::SetEnvironmentVariable("DB_PASSWORD", "tu_password", "User")
+```
 
 ## Objetivo del proyecto
 
