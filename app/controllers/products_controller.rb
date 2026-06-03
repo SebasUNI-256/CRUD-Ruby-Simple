@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
   #Lista los productos
   def index
    #Logica de filtrado movida al modelo
-   @product = Product.filter_by(params)
+   @products = Product.filter_by(params)
   end
 
   #Muestra un solo producto

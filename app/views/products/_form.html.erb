@@ -41,7 +41,7 @@
   </div>
 
   <div>
-    <%= form.submit "Subir" %>
+    <%= form.submit product.persisted? ? "Actualizar" : "Crear" %>
   </div>
 <% end %>
 
