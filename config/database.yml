@@ -3,7 +3,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   username: <%= ENV["DB_USERNAME"] %>
-  password: <%= ENV["DB_PASSWORD"] %> #cambiado por variables de ent
+  password: <%= ENV["DB_PASSWORD"] %> #cambiado por variables de env
   host: localhost
   port: 5432
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>

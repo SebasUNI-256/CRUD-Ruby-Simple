@@ -1,77 +1,61 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-    #Prepara Todo para no repetir codigo (ej: @product = Product.find(params[:id]) )
-    
-    #/products/5/edit
-    #        ↓
-    #params[:id] = 5
-    #        ↓
-    #before_action ejecuta set_product
-    #        ↓
-    #@product = Product.find(5)
-    #        ↓
-    #entra a edit con @product ya listo  
-    
+  # Carga @product antes de las acciones que lo necesitan.
 
-  #Esto manejas las acciones
-  #Lista los productos
+  # Lista y filtra productos.
   def index
-   #Logica de filtrado movida al modelo
-   @products = Product.filter_by(params)
+    @products = Product.filter_by(params)
   end
 
-  #Muestra un solo producto
+  # Muestra un producto.
   def show
   end
 
-  #Prepara un producto vacio para el formulario
+  # Prepara el formulario de registro.
   def new
     @product = Product.new
   end
 
-  #Guarda un producto nuevo en la base de datos
+  # Guarda un producto nuevo.
   def create
     @product = Product.new(product_params)
+
     if @product.save
-    redirect_to products_path
+      redirect_to products_path
     else
-      #si el producto no se guarda, new mantienen @product con sus errores y responde con un 422
+      # Reutiliza el formulario mostrando errores.
       render :new, status: :unprocessable_entity
     end
   end
 
-  #Carga un producto existente para editarlo
+  # Carga el formulario de edicion.
   def edit
   end
 
-  #Actualiza un producto existente
+  # Actualiza un producto.
   def update
     if @product.update(product_params)
-    redirect_to products_path #Es mejor que (redirect_to "/products")
+      redirect_to products_path
     else
       render :edit, status: :unprocessable_entity
     end
   end
-  
-  #Elimina un producto existente
+
+  # Elimina un producto.
   def destroy
     @product.destroy
     redirect_to products_path
-    
+  end
+
+  private
+
+  # Busca el producto por id.
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  # Limita los campos permitidos del formulario.
+  def product_params
+    params.require(:product).permit(:name, :description, :price, :stock, :category, :active)
   end
 end
-
-private
-
-# Esto es llamdo por before_action
-# mientras que esto busca el producto por id 
-# y lo guarda
-def set_product
-  @product = Product.find(params[:id])
-end
-
-#Aqui se que campos se permiten recibir desde el formulario
-def product_params
-  params.require(:product).permit(:name, :description,:price,:stock,:category, :active)
-end
-

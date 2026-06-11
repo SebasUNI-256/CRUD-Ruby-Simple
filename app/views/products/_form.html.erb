@@ -1,26 +1,26 @@
-<%= form_with model: product do |form|%>
-<% if product.errors.any?%>
-<div class="error-box">
-    <h2>Errores:</h2>
-    <ul>
+<%= form_with model: product do |form| %>
+  <% if product.errors.any? %>
+    <div class="error-box">
+      <h2>Errores:</h2>
+      <ul>
         <% product.errors.full_messages.each do |message| %>
-        <li><%= message%></li>
-        <%end%>
-    </ul>
-</div>
-<% end %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<div>
-    <%= form.label :name, "Nombre"%>
-    <%= form.text_field :name%> <!--product.name-->
-</div>
+  <div>
+    <%= form.label :name, "Nombre" %>
+    <%= form.text_field :name %>
+  </div>
 
-<div>
-    <%= form.label :description, "Descripcion"%>
-    <%= form.text_area :description%>
-</div>
+  <div>
+    <%= form.label :description, "Descripcion" %>
+    <%= form.text_area :description %>
+  </div>
 
- <div>
+  <div>
     <%= form.label :price, "Precio" %>
     <%= form.number_field :price, step: 0.01 %>
   </div>
@@ -31,7 +31,7 @@
   </div>
 
   <div>
-    <%= form.label :category, "Categoría" %>
+    <%= form.label :category, "Categoria" %>
     <%= form.text_field :category %>
   </div>
 
@@ -44,8 +44,3 @@
     <%= form.submit product.persisted? ? "Actualizar" : "Crear" %>
   </div>
 <% end %>
-
-<!--
-Este formulario funciona para
-new y edit
--->
